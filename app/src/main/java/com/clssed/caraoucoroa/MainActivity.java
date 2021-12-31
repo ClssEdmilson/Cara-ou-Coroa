@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button jogar;
@@ -20,10 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
         jogar = findViewById(R.id.B_Jogar);
 
+
+
         jogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ResultadoActivity.class);
+                int numero = new Random().nextInt(2);
+
+                intent.putExtra("result",numero);
+
                 startActivity(intent);
             }
         });
